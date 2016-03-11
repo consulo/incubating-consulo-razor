@@ -16,19 +16,12 @@
 
 package org.mustbe.consulo.razor.csharp;
 
-import com.intellij.lang.Language;
-import com.intellij.psi.templateLanguages.TemplateLanguage;
+import javax.swing.Icon;
 
-/**
- * @author VISTALL
- * @since 10.03.2016
- */
-public class RazorCSharpLanguage extends Language implements TemplateLanguage
+import com.intellij.openapi.util.IconLoader;
+
+// Generated Consulo DevKit plugin 
+public interface RazorCSharpIcons
 {
-	public static final RazorCSharpLanguage INSTANCE = new RazorCSharpLanguage();
-
-	private RazorCSharpLanguage()
-	{
-		super("RAZOR_CSHARP");
-	}
+	Icon Cshtml = IconLoader.getIcon("/icons/cshtml.png");  // 16x16
 }
