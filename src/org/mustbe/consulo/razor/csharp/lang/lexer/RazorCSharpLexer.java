@@ -60,6 +60,9 @@ public class RazorCSharpLexer extends LookAheadLexer
 
 		if(tokenType == RazorCSharpTokens.AT)
 		{
+			// eat AT
+			advanceAs(baseLexer, RazorCSharpTokens.AT);
+
 			LexerPosition currentPosition = baseLexer.getCurrentPosition();
 
 			Ref<LexerPosition> positionRef = Ref.create();
@@ -67,15 +70,8 @@ public class RazorCSharpLexer extends LookAheadLexer
 			baseLexer.restore(currentPosition);
 
 			LexerPosition lexerPosition = positionRef.get();
-			if(lexerPosition == null)
+			if(lexerPosition != null)
 			{
-				advanceAs(baseLexer, RazorCSharpTokens.TEMPLATE_TEXT);
-			}
-			else
-			{
-				// eat AT
-				advanceAs(baseLexer, RazorCSharpTokens.AT);
-
 				while(baseLexer.getTokenType() != null)
 				{
 					if(baseLexer.getTokenStart() == lexerPosition.getOffset())
@@ -101,8 +97,6 @@ public class RazorCSharpLexer extends LookAheadLexer
 
 	private boolean eatExpression(Lexer lexer, @NotNull Ref<LexerPosition> positionRef)
 	{
-		lexer.advance(); // eat at
-
 		IElementType tokenType = lexer.getTokenType();
 		if(tokenType == CSharpTokens.LBRACE)
 		{

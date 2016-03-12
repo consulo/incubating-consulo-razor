@@ -16,9 +16,22 @@
 
 package org.mustbe.consulo.razor.csharp.lang;
 
+import org.jetbrains.annotations.NotNull;
+import org.mustbe.consulo.csharp.lang.CSharpLanguage;
+import org.mustbe.consulo.csharp.lang.parser.CSharpBuilderWrapper;
+import org.mustbe.consulo.csharp.lang.parser.ModifierSet;
+import org.mustbe.consulo.csharp.lang.parser.stmt.StatementParsing;
+import com.intellij.lang.ASTNode;
+import com.intellij.lang.Language;
+import com.intellij.lang.LanguageVersion;
+import com.intellij.lang.PsiBuilder;
+import com.intellij.lang.PsiBuilderFactory;
+import com.intellij.openapi.project.Project;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.templateLanguages.TemplateDataElementType;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.tree.ILazyParseableElementType;
 
 /**
  * @author VISTALL
@@ -28,7 +41,27 @@ public interface RazorCSharpTokens extends TokenType
 {
 	IElementType AT = new IElementType("AT", RazorCSharpLanguage.INSTANCE);
 
-	IElementType CSHARP_TEXT = new IElementType("CSHARP_TEXT", RazorCSharpLanguage.INSTANCE);
+	IElementType CSHARP_TEXT = new ILazyParseableElementType("CSHARP_TEXT", RazorCSharpLanguage.INSTANCE)
+	{
+		@Override
+		protected ASTNode doParseContents(@NotNull ASTNode chameleon, @NotNull PsiElement psi)
+		{
+			final Project project = psi.getProject();
+			final Language languageForParser = getLanguageForParser(psi);
+			final LanguageVersion languageVersion = CSharpLanguage.INSTANCE.getVersions()[0];
+			final PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, null, languageForParser, languageVersion, chameleon.getChars());
+
+			StatementParsing.parse(new CSharpBuilderWrapper(builder, languageVersion), ModifierSet.create());
+			return builder.getTreeBuilt();
+		}
+
+		@NotNull
+		@Override
+		public Language getLanguage()
+		{
+			return CSharpLanguage.INSTANCE;
+		}
+	};
 
 	IElementType BLOCK_COMMENT = new IElementType("BLOCK_COMMENT", RazorCSharpLanguage.INSTANCE);
 

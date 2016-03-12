@@ -46,6 +46,10 @@ public class RazorCSharpHighlighter extends SyntaxHighlighterBase
 		{
 			return pack(DefaultLanguageHighlighterColors.BLOCK_COMMENT);
 		}
+		else if(tokenType == RazorCSharpTokens.AT)
+		{
+			return pack(DefaultLanguageHighlighterColors.MARKUP_ENTITY);
+		}
 		return EMPTY;
 	}
 }

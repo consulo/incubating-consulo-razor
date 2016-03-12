@@ -60,10 +60,14 @@ public class RazorCSharpParserDefinition implements ParserDefinition
 			public ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
 			{
 				PsiBuilder.Marker mark = builder.mark();
+				PsiBuilder.Marker typeMarker = builder.mark();
+				PsiBuilder.Marker methodMarker = builder.mark();
 				while(!builder.eof())
 				{
 					builder.advanceLexer();
 				}
+				methodMarker.done(RazorCSharpElements.METHOD_DECLARATION);
+				typeMarker.done(RazorCSharpElements.TYPE_DECLARATION);
 				mark.done(root);
 				return builder.getTreeBuilt();
 			}

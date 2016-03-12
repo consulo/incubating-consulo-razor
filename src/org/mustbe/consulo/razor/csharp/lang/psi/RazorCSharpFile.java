@@ -17,6 +17,10 @@
 package org.mustbe.consulo.razor.csharp.lang.psi;
 
 import org.jetbrains.annotations.NotNull;
+import org.mustbe.consulo.RequiredReadAction;
+import org.mustbe.consulo.csharp.lang.psi.CSharpFile;
+import org.mustbe.consulo.csharp.lang.psi.CSharpUsingListChild;
+import org.mustbe.consulo.dotnet.psi.DotNetQualifiedElement;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.lang.Language;
 import com.intellij.psi.FileViewProvider;
@@ -25,10 +29,25 @@ import com.intellij.psi.FileViewProvider;
  * @author VISTALL
  * @since 10.03.2016
  */
-public class RazorCSharpFile extends PsiFileBase
+public class RazorCSharpFile extends PsiFileBase implements CSharpFile
 {
 	public RazorCSharpFile(@NotNull FileViewProvider viewProvider, @NotNull Language language)
 	{
 		super(viewProvider, language);
+	}
+
+	@NotNull
+	@Override
+	public DotNetQualifiedElement[] getMembers()
+	{
+		return findChildrenByClass(DotNetQualifiedElement.class);
+	}
+
+	@RequiredReadAction
+	@NotNull
+	@Override
+	public CSharpUsingListChild[] getUsingStatements()
+	{
+		return new CSharpUsingListChild[0];
 	}
 }
