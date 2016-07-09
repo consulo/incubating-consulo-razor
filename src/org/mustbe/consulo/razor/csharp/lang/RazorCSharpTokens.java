@@ -20,7 +20,10 @@ import org.jetbrains.annotations.NotNull;
 import org.mustbe.consulo.csharp.lang.CSharpLanguage;
 import org.mustbe.consulo.csharp.lang.parser.CSharpBuilderWrapper;
 import org.mustbe.consulo.csharp.lang.parser.ModifierSet;
+import org.mustbe.consulo.csharp.lang.parser.exp.ExpressionParsing;
 import org.mustbe.consulo.csharp.lang.parser.stmt.StatementParsing;
+import org.mustbe.consulo.csharp.lang.psi.CSharpTokens;
+import org.mustbe.consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageVersion;
@@ -51,8 +54,27 @@ public interface RazorCSharpTokens extends TokenType
 			final LanguageVersion languageVersion = CSharpLanguage.INSTANCE.getVersions()[0];
 			final PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, null, languageForParser, languageVersion, chameleon.getChars());
 
-			StatementParsing.parse(new CSharpBuilderWrapper(builder, languageVersion), ModifierSet.create());
-			return builder.getTreeBuilt();
+			CSharpBuilderWrapper builderWrapper = new CSharpBuilderWrapper(builder, languageVersion);
+
+			PsiBuilder.Marker rootMarker = builderWrapper.mark();
+			if(RazorCSharpLexer.ourPairStatementKeywords.contains(builder.getTokenType()) || builder.getTokenType() == CSharpTokens.LBRACE)
+			{
+				StatementParsing.parse(builderWrapper, ModifierSet.create());
+			}
+			else
+			{
+				ExpressionParsing.parse(builderWrapper, ModifierSet.create());
+			}
+
+			while(!builder.eof())
+			{
+				PsiBuilder.Marker mark = builder.mark();
+				builder.advanceLexer();
+				mark.error("Unexpected element");
+			}
+
+			rootMarker.done(this);
+			return builder.getTreeBuilt().getFirstChildNode();
 		}
 
 		@NotNull

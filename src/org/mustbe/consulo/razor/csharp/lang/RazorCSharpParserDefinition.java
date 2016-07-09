@@ -18,6 +18,7 @@ package org.mustbe.consulo.razor.csharp.lang;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.csharp.lang.psi.CSharpElements;
 import org.mustbe.consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 import org.mustbe.consulo.razor.csharp.lang.psi.RazorCSharpFile;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
@@ -62,10 +63,12 @@ public class RazorCSharpParserDefinition implements ParserDefinition
 				PsiBuilder.Marker mark = builder.mark();
 				PsiBuilder.Marker typeMarker = builder.mark();
 				PsiBuilder.Marker methodMarker = builder.mark();
+				PsiBuilder.Marker blockMarker = builder.mark();
 				while(!builder.eof())
 				{
 					builder.advanceLexer();
 				}
+				blockMarker.done(CSharpElements.BLOCK_STATEMENT);
 				methodMarker.done(RazorCSharpElements.METHOD_DECLARATION);
 				typeMarker.done(RazorCSharpElements.TYPE_DECLARATION);
 				mark.done(root);

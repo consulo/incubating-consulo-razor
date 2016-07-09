@@ -41,7 +41,7 @@ public class RazorCSharpLexer extends LookAheadLexer
 		}
 	}
 
-	private static TokenSet ourPairStatementKeywords = TokenSet.create(CSharpTokens.FOR_KEYWORD, CSharpTokens.IF_KEYWORD, CSharpTokens.WHILE_KEYWORD);
+	public static TokenSet ourPairStatementKeywords = TokenSet.create(CSharpTokens.FOR_KEYWORD, CSharpTokens.IF_KEYWORD, CSharpTokens.WHILE_KEYWORD);
 
 	public RazorCSharpLexer()
 	{
@@ -104,6 +104,12 @@ public class RazorCSharpLexer extends LookAheadLexer
 
 			positionRef.set(lexer.getCurrentPosition());
 		}
+		else if(tokenType == CSharpTokens.LPAR)
+		{
+			eatPairElements(lexer, CSharpTokens.LPAR, CSharpTokens.RPAR);
+
+			positionRef.set(lexer.getCurrentPosition());
+		}
 		else if(ourPairStatementKeywords.contains(tokenType))
 		{
 			lexer.advance();
@@ -122,14 +128,22 @@ public class RazorCSharpLexer extends LookAheadLexer
 		{
 			lexer.advance();
 
-			if(lexer.getTokenType() == CSharpTokens.LPAR)
-			{
-				eatPairElements(lexer, CSharpTokens.LPAR, CSharpTokens.RPAR);
-			}
+			eatArguments(lexer);
 
 			positionRef.set(lexer.getCurrentPosition());
 		}
 		return true;
+	}
+
+	private static void eatArguments(Lexer lexer)
+	{
+		skipSpaces(lexer);
+
+		while(lexer.getTokenType() == CSharpTokens.LPAR || lexer.getTokenType() == CSharpTokens.LBRACKET)
+		{
+			IElementType tokenType = lexer.getTokenType();
+			eatPairElements(lexer, tokenType, tokenType == CSharpTokens.LPAR ? CSharpTokens.RPAR : CSharpTokens.RBRACKET);
+		}
 	}
 
 	private static void skipSpaces(Lexer lexer)
@@ -140,7 +154,7 @@ public class RazorCSharpLexer extends LookAheadLexer
 		}
 	}
 
-	private void eatPairElements(Lexer lexer, IElementType open, IElementType stop)
+	private static void eatPairElements(Lexer lexer, IElementType open, IElementType stop)
 	{
 		IElementType tokenType = lexer.getTokenType();
 		if(tokenType == open)

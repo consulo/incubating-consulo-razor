@@ -64,6 +64,10 @@ IDENTIFIER=[:jletter:] [:jletterdigit:]*
 
     ")"               { return CSharpTokens.RPAR; }
 
+    "["               { return CSharpTokens.LBRACKET; }
+
+    "]"               { return CSharpTokens.RBRACKET; }
+
     "{"               { return CSharpTokens.LBRACE; }
 
     "}"               { return CSharpTokens.RBRACE; }

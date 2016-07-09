@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.consulo.RequiredReadAction;
+import org.mustbe.consulo.csharp.lang.psi.CSharpElements;
 import org.mustbe.consulo.csharp.lang.psi.CSharpGenericConstraint;
 import org.mustbe.consulo.csharp.lang.psi.CSharpGenericConstraintList;
 import org.mustbe.consulo.csharp.lang.psi.CSharpMethodDeclaration;
@@ -114,9 +115,10 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 
 	@Nullable
 	@Override
+	@RequiredReadAction
 	public PsiElement getCodeBlock()
 	{
-		return null;
+		return findChildByType(CSharpElements.BLOCK_STATEMENT);
 	}
 
 	@Nullable
