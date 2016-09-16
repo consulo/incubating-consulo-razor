@@ -18,7 +18,6 @@ package org.mustbe.consulo.razor.csharp.highlight;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.csharp.lang.CSharpLanguage;
 import org.mustbe.consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lang.html.HTMLLanguage;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -29,6 +28,7 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataHighlighterWrapper;
+import consulo.csharp.lang.CSharpLanguage;
 
 /**
  * @author VISTALL

@@ -17,7 +17,6 @@
 package org.mustbe.consulo.razor.csharp.lang.lexer;
 
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.csharp.lang.psi.CSharpTokens;
 import org.mustbe.consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lexer.Lexer;
 import com.intellij.lexer.LexerPosition;
@@ -26,6 +25,7 @@ import com.intellij.lexer.MergingLexerAdapter;
 import com.intellij.openapi.util.Ref;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
+import consulo.csharp.lang.psi.CSharpTokens;
 
 /**
  * @author VISTALL

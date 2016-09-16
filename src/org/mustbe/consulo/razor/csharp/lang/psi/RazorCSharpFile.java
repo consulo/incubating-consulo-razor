@@ -17,13 +17,13 @@
 package org.mustbe.consulo.razor.csharp.lang.psi;
 
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.RequiredReadAction;
-import org.mustbe.consulo.csharp.lang.psi.CSharpFile;
-import org.mustbe.consulo.csharp.lang.psi.CSharpUsingListChild;
-import org.mustbe.consulo.dotnet.psi.DotNetQualifiedElement;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.lang.Language;
 import com.intellij.psi.FileViewProvider;
+import consulo.annotations.RequiredReadAction;
+import consulo.csharp.lang.psi.CSharpFile;
+import consulo.csharp.lang.psi.CSharpUsingListChild;
+import consulo.dotnet.psi.DotNetQualifiedElement;
 
 /**
  * @author VISTALL

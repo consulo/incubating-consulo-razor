@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.mustbe.consulo.razor.csharp.lang.lexer;
+package consulo.razor.csharp.lang.lexer;
 
-import org.mustbe.consulo.csharp.lang.psi.CSharpTokens;
-import org.mustbe.consulo.razor.csharp.lang.RazorCSharpTokens;
+import consulo.csharp.lang.psi.CSharpTokens;
+import consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 

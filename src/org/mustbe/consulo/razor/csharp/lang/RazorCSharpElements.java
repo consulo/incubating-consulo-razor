@@ -18,8 +18,8 @@ package org.mustbe.consulo.razor.csharp.lang;
 
 import org.mustbe.consulo.razor.csharp.lang.psi.RazorCSharpMethodDeclaration;
 import org.mustbe.consulo.razor.csharp.lang.psi.RazorCSharpTypeDeclaration;
-import com.intellij.psi.tree.ElementTypeAsPsiFactory;
 import com.intellij.psi.tree.IElementType;
+import consulo.psi.tree.ElementTypeAsPsiFactory;
 
 /**
  * @author VISTALL
