@@ -1,0 +1,8 @@
+<component name="libraryTable">
+  <library name="consulo-plugin: consulo.csharp">
+    <binaries>
+      <root url="file://$PROJECT_DIR$/dep/consulo.csharp/lib" />
+    </binaries>
+    <jarDirectory url="file://$PROJECT_DIR$/dep/consulo.csharp/lib" recursive="false" />
+  </library>
+</component>
