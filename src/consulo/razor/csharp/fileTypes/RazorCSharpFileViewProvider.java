@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2016 must-be.org
+ * Copyright 2013-2016 consulo.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.mustbe.consulo.razor.csharp.fileTypes;
+package consulo.razor.csharp.fileTypes;
 
 import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.razor.csharp.lang.RazorCSharpLanguage;
-import org.mustbe.consulo.razor.csharp.lang.RazorCSharpTokens;
+import consulo.razor.csharp.lang.RazorCSharpLanguage;
+import consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageParserDefinitions;
 import com.intellij.lang.html.HTMLLanguage;

@@ -1,1 +1,1 @@
-![Build Status](http://must-be.org/vulcan/statusImage?name=_consulo-razor)
+[![Build Status](http://must-be.org/jenkins/job/consulo-razor/badge/icon)](http://must-be.org/jenkins/job/consulo-razor/)

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2016 must-be.org
+ * Copyright 2013-2016 consulo.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.mustbe.consulo.razor.csharp.lang;
+package consulo.razor.csharp.lang;
 
-import org.mustbe.consulo.razor.csharp.lang.psi.RazorCSharpMethodDeclaration;
-import org.mustbe.consulo.razor.csharp.lang.psi.RazorCSharpTypeDeclaration;
+import consulo.razor.csharp.lang.psi.RazorCSharpMethodDeclaration;
+import consulo.razor.csharp.lang.psi.RazorCSharpTypeDeclaration;
 import com.intellij.psi.tree.IElementType;
 import consulo.psi.tree.ElementTypeAsPsiFactory;
 
