@@ -129,7 +129,8 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 	public DotNetTypeRef[] getExtendTypeRefs()
 	{
 		return new DotNetTypeRef[]{
-				new CSharpGenericWrapperTypeRef(new CSharpTypeRefByQName(this, "RazorEngine.Templating.HtmlTemplateBase`1"), new CSharpDynamicTypeRef(getProject(), getResolveScope()))};
+				new CSharpGenericWrapperTypeRef(getProject(), new CSharpTypeRefByQName(this, "RazorEngine.Templating.HtmlTemplateBase`1"), new CSharpDynamicTypeRef(getProject(), getResolveScope()))
+		};
 	}
 
 	@RequiredReadAction
