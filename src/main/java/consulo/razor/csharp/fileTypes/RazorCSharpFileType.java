@@ -39,7 +39,7 @@ public class RazorCSharpFileType extends LanguageFileType
 
 	@NotNull
 	@Override
-	public String getName()
+	public String getId()
 	{
 		return "RAZOR_CSHARP";
 	}

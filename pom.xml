@@ -51,9 +51,8 @@
 					<repositoryChannel>nightly</repositoryChannel>
 					<dependencies>
 						<dependency>consulo.dotnet</dependency>
-						<dependency>consulo.dotnet.mono</dependency>
-						<dependency>consulo.dotnet.microsoft</dependency>
 						<dependency>com.intellij.xml</dependency>
+						<dependency>consulo.csharp</dependency>
 					</dependencies>
 					<packaging>
 						<skip>${dev.mode}</skip>
@@ -76,6 +75,12 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>consulo.dotnet</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>consulo.csharp</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
 		</dependency>
