@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import consulo.razor.csharp.RazorCSharpIcons;
 import consulo.razor.csharp.lang.RazorCSharpLanguage;
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -60,7 +61,7 @@ public class RazorCSharpFileType extends LanguageFileType
 
 	@Nullable
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return RazorCSharpIcons.Cshtml;
 	}

@@ -16,12 +16,11 @@
 
 package consulo.razor.csharp;
 
-import javax.swing.Icon;
-
 import com.intellij.openapi.util.IconLoader;
+import consulo.ui.image.Image;
 
 // Generated Consulo DevKit plugin 
 public interface RazorCSharpIcons
 {
-	Icon Cshtml = IconLoader.getIcon("/icons/cshtml.png");  // 16x16
+	Image Cshtml = IconLoader.getIcon("/icons/cshtml.png");  // 16x16
 }
