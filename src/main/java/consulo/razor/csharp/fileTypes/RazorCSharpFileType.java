@@ -16,10 +16,9 @@
 
 package consulo.razor.csharp.fileTypes;
 
-import javax.swing.Icon;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import consulo.razor.csharp.RazorCSharpIcons;
 import consulo.razor.csharp.lang.RazorCSharpLanguage;
 import com.intellij.openapi.fileTypes.LanguageFileType;
@@ -38,21 +37,21 @@ public class RazorCSharpFileType extends LanguageFileType
 		super(RazorCSharpLanguage.INSTANCE);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getId()
 	{
 		return "RAZOR_CSHARP";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getDescription()
 	{
 		return "Razor Template C# files";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getDefaultExtension()
 	{

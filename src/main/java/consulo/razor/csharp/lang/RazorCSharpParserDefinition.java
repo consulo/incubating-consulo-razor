@@ -16,7 +16,8 @@
 
 package consulo.razor.csharp.lang;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 import consulo.razor.csharp.lang.psi.RazorCSharpFile;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
@@ -41,22 +42,22 @@ import consulo.lang.LanguageVersion;
 public class RazorCSharpParserDefinition implements ParserDefinition
 {
 	private static final IFileElementType FILE_ELEMENT_TYPE = new IFileElementType("RAZOR_CSHARP_FILE", RazorCSharpLanguage.INSTANCE);
-	@NotNull
+	@Nonnull
 	@Override
-	public Lexer createLexer( @NotNull LanguageVersion languageVersion)
+	public Lexer createLexer( @Nonnull LanguageVersion languageVersion)
 	{
 		return new RazorCSharpLexer.Merge();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public PsiParser createParser(@NotNull LanguageVersion languageVersion)
+	public PsiParser createParser(@Nonnull LanguageVersion languageVersion)
 	{
 		return new PsiParser()
 		{
-			@NotNull
+			@Nonnull
 			@Override
-			public ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder, @NotNull LanguageVersion languageVersion)
+			public ASTNode parse(@Nonnull IElementType root, @Nonnull PsiBuilder builder, @Nonnull LanguageVersion languageVersion)
 			{
 				PsiBuilder.Marker mark = builder.mark();
 				PsiBuilder.Marker typeMarker = builder.mark();
@@ -75,35 +76,35 @@ public class RazorCSharpParserDefinition implements ParserDefinition
 		};
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public IFileElementType getFileNodeType()
 	{
 		return FILE_ELEMENT_TYPE;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public TokenSet getWhitespaceTokens(@NotNull LanguageVersion languageVersion)
+	public TokenSet getWhitespaceTokens(@Nonnull LanguageVersion languageVersion)
 	{
 		return TokenSet.EMPTY;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public TokenSet getCommentTokens(@NotNull LanguageVersion languageVersion)
+	public TokenSet getCommentTokens(@Nonnull LanguageVersion languageVersion)
 	{
 		return TokenSet.EMPTY;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public TokenSet getStringLiteralElements(@NotNull LanguageVersion languageVersion)
+	public TokenSet getStringLiteralElements(@Nonnull LanguageVersion languageVersion)
 	{
 		return TokenSet.EMPTY;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public PsiElement createElement(ASTNode node)
 	{
@@ -116,7 +117,7 @@ public class RazorCSharpParserDefinition implements ParserDefinition
 		return new RazorCSharpFile(viewProvider, RazorCSharpLanguage.INSTANCE);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right)
 	{

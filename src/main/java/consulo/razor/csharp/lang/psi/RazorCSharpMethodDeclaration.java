@@ -16,9 +16,11 @@
 
 package consulo.razor.csharp.lang.psi;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -45,7 +47,7 @@ import consulo.dotnet.resolve.DotNetTypeRef;
  */
 public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implements CSharpMethodDeclaration
 {
-	public RazorCSharpMethodDeclaration(@NotNull ASTNode node)
+	public RazorCSharpMethodDeclaration(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
@@ -83,14 +85,14 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public CSharpGenericConstraint[] getGenericConstraints()
 	{
 		return new CSharpGenericConstraint[0];
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public CSharpSimpleParameterInfo[] getParameterInfos()
 	{
@@ -106,7 +108,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 	}
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetTypeRef getReturnTypeRef()
 	{
@@ -128,7 +130,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetGenericParameter[] getGenericParameters()
 	{
@@ -143,7 +145,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 
 	@RequiredReadAction
 	@Override
-	public boolean hasModifier(@NotNull DotNetModifier dotNetModifier)
+	public boolean hasModifier(@Nonnull DotNetModifier dotNetModifier)
 	{
 		return false;
 	}
@@ -156,7 +158,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetTypeRef[] getParameterTypeRefs()
 	{
@@ -170,7 +172,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetParameter[] getParameters()
 	{
@@ -200,7 +202,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetTypeRef getTypeRefForImplement()
 	{
@@ -215,7 +217,7 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String name) throws IncorrectOperationException
+	public PsiElement setName(@NonNls @Nonnull String name) throws IncorrectOperationException
 	{
 		return null;
 	}

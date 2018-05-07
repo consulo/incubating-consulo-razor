@@ -16,9 +16,11 @@
 
 package consulo.razor.csharp.lang.psi;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -47,13 +49,13 @@ import consulo.dotnet.resolve.DotNetTypeRef;
  */
 public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements CSharpTypeDeclaration
 {
-	public RazorCSharpTypeDeclaration(@NotNull ASTNode node)
+	public RazorCSharpTypeDeclaration(@Nonnull ASTNode node)
 	{
 		super(node);
 	}
 
 	@Override
-	public void accept(@NotNull PsiElementVisitor visitor)
+	public void accept(@Nonnull PsiElementVisitor visitor)
 	{
 		if(visitor instanceof CSharpElementVisitor)
 		{
@@ -86,7 +88,7 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public CSharpGenericConstraint[] getGenericConstraints()
 	{
@@ -124,7 +126,7 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetTypeRef[] getExtendTypeRefs()
 	{
@@ -135,12 +137,12 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 
 	@RequiredReadAction
 	@Override
-	public boolean isInheritor(@NotNull String s, boolean b)
+	public boolean isInheritor(@Nonnull String s, boolean b)
 	{
 		return DotNetInheritUtil.isInheritor(this, s, b);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetTypeRef getTypeRefForEnumConstants()
 	{
@@ -170,7 +172,7 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetGenericParameter[] getGenericParameters()
 	{
@@ -183,7 +185,7 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 		return 0;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetNamedElement[] getMembers()
 	{
@@ -192,7 +194,7 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 
 	@RequiredReadAction
 	@Override
-	public boolean hasModifier(@NotNull DotNetModifier dotNetModifier)
+	public boolean hasModifier(@Nonnull DotNetModifier dotNetModifier)
 	{
 		return false;
 	}
@@ -229,7 +231,7 @@ public class RazorCSharpTypeDeclaration extends ASTWrapperPsiElement implements 
 	}
 
 	@Override
-	public PsiElement setName(@NonNls @NotNull String name) throws IncorrectOperationException
+	public PsiElement setName(@NonNls @Nonnull String name) throws IncorrectOperationException
 	{
 		return null;
 	}

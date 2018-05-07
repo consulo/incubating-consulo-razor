@@ -16,7 +16,8 @@
 
 package consulo.razor.csharp.lang.lexer;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lexer.Lexer;
 import com.intellij.lexer.LexerPosition;
@@ -95,7 +96,7 @@ public class RazorCSharpLexer extends LookAheadLexer
 		}
 	}
 
-	private boolean eatExpression(Lexer lexer, @NotNull Ref<LexerPosition> positionRef)
+	private boolean eatExpression(Lexer lexer, @Nonnull Ref<LexerPosition> positionRef)
 	{
 		IElementType tokenType = lexer.getTokenType();
 		if(tokenType == CSharpTokens.LBRACE)

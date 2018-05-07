@@ -16,7 +16,8 @@
 
 package consulo.razor.csharp.lang.psi;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.lang.Language;
 import com.intellij.psi.FileViewProvider;
@@ -31,12 +32,12 @@ import consulo.dotnet.psi.DotNetQualifiedElement;
  */
 public class RazorCSharpFile extends PsiFileBase implements CSharpFile
 {
-	public RazorCSharpFile(@NotNull FileViewProvider viewProvider, @NotNull Language language)
+	public RazorCSharpFile(@Nonnull FileViewProvider viewProvider, @Nonnull Language language)
 	{
 		super(viewProvider, language);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DotNetQualifiedElement[] getMembers()
 	{
@@ -44,7 +45,7 @@ public class RazorCSharpFile extends PsiFileBase implements CSharpFile
 	}
 
 	@RequiredReadAction
-	@NotNull
+	@Nonnull
 	@Override
 	public CSharpUsingListChild[] getUsingStatements()
 	{

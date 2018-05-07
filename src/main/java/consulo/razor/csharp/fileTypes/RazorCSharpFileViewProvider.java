@@ -18,8 +18,9 @@ package consulo.razor.csharp.fileTypes;
 
 import java.util.Set;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import consulo.razor.csharp.lang.RazorCSharpLanguage;
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lang.Language;
@@ -48,7 +49,7 @@ public class RazorCSharpFileViewProvider extends MultiplePsiFilesPerDocumentFile
 
 	@Nullable
 	@Override
-	protected PsiFile createFile(@NotNull Language lang)
+	protected PsiFile createFile(@Nonnull Language lang)
 	{
 		if(lang == getBaseLanguage())
 		{
@@ -65,21 +66,21 @@ public class RazorCSharpFileViewProvider extends MultiplePsiFilesPerDocumentFile
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Set<Language> getLanguages()
 	{
 		return ourLanguages;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Language getBaseLanguage()
 	{
 		return RazorCSharpLanguage.INSTANCE;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Language getTemplateDataLanguage()
 	{

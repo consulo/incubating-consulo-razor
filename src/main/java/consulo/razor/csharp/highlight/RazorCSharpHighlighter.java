@@ -16,7 +16,8 @@
 
 package consulo.razor.csharp.highlight;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 import com.intellij.lexer.Lexer;
@@ -31,14 +32,14 @@ import com.intellij.psi.tree.IElementType;
  */
 public class RazorCSharpHighlighter extends SyntaxHighlighterBase
 {
-	@NotNull
+	@Nonnull
 	@Override
 	public Lexer getHighlightingLexer()
 	{
 		return new RazorCSharpLexer.Merge();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
 	{

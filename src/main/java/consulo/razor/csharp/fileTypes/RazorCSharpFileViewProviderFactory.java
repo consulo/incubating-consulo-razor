@@ -16,7 +16,8 @@
 
 package consulo.razor.csharp.fileTypes;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.Language;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.FileViewProvider;
@@ -30,7 +31,7 @@ import com.intellij.psi.PsiManager;
 public class RazorCSharpFileViewProviderFactory implements FileViewProviderFactory
 {
 	@Override
-	public FileViewProvider createFileViewProvider(@NotNull VirtualFile file, Language language, @NotNull PsiManager manager, boolean eventSystemEnabled)
+	public FileViewProvider createFileViewProvider(@Nonnull VirtualFile file, Language language, @Nonnull PsiManager manager, boolean eventSystemEnabled)
 	{
 		return new RazorCSharpFileViewProvider(manager, file, eventSystemEnabled);
 	}

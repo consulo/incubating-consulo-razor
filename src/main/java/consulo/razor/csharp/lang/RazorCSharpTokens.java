@@ -16,7 +16,8 @@
 
 package consulo.razor.csharp.lang;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -47,7 +48,7 @@ public interface RazorCSharpTokens extends TokenType
 	IElementType CSHARP_TEXT = new ILazyParseableElementType("CSHARP_TEXT", RazorCSharpLanguage.INSTANCE)
 	{
 		@Override
-		protected ASTNode doParseContents(@NotNull ASTNode chameleon, @NotNull PsiElement psi)
+		protected ASTNode doParseContents(@Nonnull ASTNode chameleon, @Nonnull PsiElement psi)
 		{
 			final Project project = psi.getProject();
 			final Language languageForParser = getLanguageForParser(psi);
@@ -77,7 +78,7 @@ public interface RazorCSharpTokens extends TokenType
 			return builder.getTreeBuilt().getFirstChildNode();
 		}
 
-		@NotNull
+		@Nonnull
 		@Override
 		public Language getLanguage()
 		{

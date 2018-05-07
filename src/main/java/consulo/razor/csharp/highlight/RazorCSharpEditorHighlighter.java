@@ -16,8 +16,9 @@
 
 package consulo.razor.csharp.highlight;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import com.intellij.lang.html.HTMLLanguage;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -36,7 +37,7 @@ import consulo.csharp.lang.CSharpLanguage;
  */
 public class RazorCSharpEditorHighlighter extends LayeredLexerEditorHighlighter
 {
-	public RazorCSharpEditorHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @NotNull EditorColorsScheme scheme)
+	public RazorCSharpEditorHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @Nonnull EditorColorsScheme scheme)
 	{
 		super(new RazorCSharpHighlighter(), scheme);
 
