@@ -16,10 +16,6 @@
 
 package consulo.razor.csharp.lang;
 
-import javax.annotation.Nonnull;
-
-import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
-import consulo.razor.csharp.lang.psi.RazorCSharpFile;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
@@ -34,6 +30,10 @@ import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 import consulo.csharp.lang.psi.CSharpElements;
 import consulo.lang.LanguageVersion;
+import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
+import consulo.razor.csharp.lang.psi.RazorCSharpFile;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -115,12 +115,5 @@ public class RazorCSharpParserDefinition implements ParserDefinition
 	public PsiFile createFile(FileViewProvider viewProvider)
 	{
 		return new RazorCSharpFile(viewProvider, RazorCSharpLanguage.INSTANCE);
-	}
-
-	@Nonnull
-	@Override
-	public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right)
-	{
-		return SpaceRequirements.MAY;
 	}
 }

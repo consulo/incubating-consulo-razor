@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.razor</id>
 	<name>Razor Template</name>
 	<category>Template Languages</category>
@@ -31,4 +31,4 @@
 
 		<editorHighlighterProvider filetype="RAZOR_CSHARP" implementationClass="consulo.razor.csharp.highlight.RazorCSharpEditorHighlighterFactory" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>

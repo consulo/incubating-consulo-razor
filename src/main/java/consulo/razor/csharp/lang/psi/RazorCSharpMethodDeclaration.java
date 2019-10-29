@@ -16,30 +16,20 @@
 
 package consulo.razor.csharp.lang.psi;
 
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
-
-import javax.annotation.Nullable;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.util.IncorrectOperationException;
 import consulo.annotations.RequiredReadAction;
-import consulo.csharp.lang.psi.CSharpElements;
-import consulo.csharp.lang.psi.CSharpGenericConstraint;
-import consulo.csharp.lang.psi.CSharpGenericConstraintList;
-import consulo.csharp.lang.psi.CSharpMethodDeclaration;
-import consulo.csharp.lang.psi.CSharpSimpleParameterInfo;
-import consulo.dotnet.psi.DotNetGenericParameter;
-import consulo.dotnet.psi.DotNetGenericParameterList;
-import consulo.dotnet.psi.DotNetModifier;
-import consulo.dotnet.psi.DotNetModifierList;
-import consulo.dotnet.psi.DotNetParameter;
-import consulo.dotnet.psi.DotNetParameterList;
-import consulo.dotnet.psi.DotNetType;
+import consulo.csharp.lang.psi.*;
+import consulo.csharp.lang.psi.impl.source.CSharpCodeBodyProxyImpl;
+import consulo.dotnet.psi.*;
 import consulo.dotnet.resolve.DotNetTypeRef;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL
@@ -118,9 +108,9 @@ public class RazorCSharpMethodDeclaration extends ASTWrapperPsiElement implement
 	@Nullable
 	@Override
 	@RequiredReadAction
-	public PsiElement getCodeBlock()
+	public CSharpCodeBodyProxy getCodeBlock()
 	{
-		return findChildByType(CSharpElements.BLOCK_STATEMENT);
+		return new CSharpCodeBodyProxyImpl(this);
 	}
 
 	@Nullable
