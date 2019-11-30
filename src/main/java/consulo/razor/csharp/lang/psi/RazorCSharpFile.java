@@ -16,15 +16,15 @@
 
 package consulo.razor.csharp.lang.psi;
 
-import javax.annotation.Nonnull;
-
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.lang.Language;
 import com.intellij.psi.FileViewProvider;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.csharp.lang.psi.CSharpFile;
 import consulo.csharp.lang.psi.CSharpUsingListChild;
 import consulo.dotnet.psi.DotNetQualifiedElement;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
