@@ -16,13 +16,13 @@
 
 package consulo.razor.csharp.fileTypes;
 
+import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.razor.csharp.lang.RazorCSharpLanguage;
+import consulo.razor.icon.RazorIconGroup;
+import consulo.ui.image.Image;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import consulo.razor.csharp.RazorCSharpIcons;
-import consulo.razor.csharp.lang.RazorCSharpLanguage;
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -62,6 +62,6 @@ public class RazorCSharpFileType extends LanguageFileType
 	@Override
 	public Image getIcon()
 	{
-		return RazorCSharpIcons.Cshtml;
+		return RazorIconGroup.cshtml();
 	}
 }
