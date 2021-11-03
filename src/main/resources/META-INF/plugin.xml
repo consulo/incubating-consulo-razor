@@ -22,6 +22,10 @@
 	<depends>com.intellij.xml</depends>
 	<depends>consulo.csharp</depends>
 
+	<tags>
+		<tag>template.language</tag>
+	</tags>
+
 	<extensions defaultExtensionNs="com.intellij">
 		<fileTypeFactory implementation="consulo.razor.RazorFileTypeFactory"/>
 
