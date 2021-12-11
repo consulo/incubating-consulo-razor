@@ -17,6 +17,7 @@
 package consulo.razor.csharp.fileTypes;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.localize.LocalizeValue;
 import consulo.razor.csharp.lang.RazorCSharpLanguage;
 import consulo.razor.icon.RazorIconGroup;
 import consulo.ui.image.Image;
@@ -46,9 +47,9 @@ public class RazorCSharpFileType extends LanguageFileType
 
 	@Nonnull
 	@Override
-	public String getDescription()
+	public LocalizeValue getDescription()
 	{
-		return "Razor Template C# files";
+		return LocalizeValue.localizeTODO("Razor Template C# files");
 	}
 
 	@Nonnull
