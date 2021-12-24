@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<consulo-plugin>
+<consulo-plugin url="https://github.com/consulo/incubating-consulo-razor">
 	<id>consulo.razor</id>
 	<name>Razor Template</name>
 	<category>Template Languages</category>
