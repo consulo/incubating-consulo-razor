@@ -16,23 +16,21 @@
 
 package consulo.razor.csharp.fileTypes;
 
-import java.util.Set;
+import consulo.language.Language;
+import consulo.language.impl.file.MultiplePsiFilesPerDocumentFileViewProvider;
+import consulo.language.impl.psi.PsiFileImpl;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.PsiManager;
+import consulo.language.template.TemplateLanguageFileViewProvider;
+import consulo.razor.csharp.lang.RazorCSharpLanguage;
+import consulo.razor.csharp.lang.RazorCSharpTokens;
+import consulo.virtualFileSystem.VirtualFile;
+import consulo.xml.lang.html.HTMLLanguage;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import consulo.razor.csharp.lang.RazorCSharpLanguage;
-import consulo.razor.csharp.lang.RazorCSharpTokens;
-import com.intellij.lang.Language;
-import com.intellij.lang.LanguageParserDefinitions;
-import com.intellij.lang.html.HTMLLanguage;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.MultiplePsiFilesPerDocumentFileViewProvider;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.impl.source.PsiFileImpl;
-import com.intellij.psi.templateLanguages.TemplateLanguageFileViewProvider;
-import com.intellij.util.containers.ContainerUtil;
+import java.util.Set;
 
 /**
  * @author VISTALL
@@ -40,7 +38,7 @@ import com.intellij.util.containers.ContainerUtil;
  */
 public class RazorCSharpFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvider implements TemplateLanguageFileViewProvider
 {
-	private static Set<Language> ourLanguages = ContainerUtil.newHashSet(RazorCSharpLanguage.INSTANCE, HTMLLanguage.INSTANCE);
+	private static Set<Language> ourLanguages = Set.of(RazorCSharpLanguage.INSTANCE, HTMLLanguage.INSTANCE);
 
 	public RazorCSharpFileViewProvider(PsiManager manager, VirtualFile virtualFile, boolean eventSystemEnabled)
 	{
@@ -53,12 +51,12 @@ public class RazorCSharpFileViewProvider extends MultiplePsiFilesPerDocumentFile
 	{
 		if(lang == getBaseLanguage())
 		{
-			return LanguageParserDefinitions.INSTANCE.forLanguage(lang).createFile(this);
+			return ParserDefinition.forLanguage(lang).createFile(this);
 		}
 
 		if(lang == getTemplateDataLanguage())
 		{
-			PsiFileImpl file = (PsiFileImpl) LanguageParserDefinitions.INSTANCE.forLanguage(lang).createFile(this);
+			PsiFileImpl file = (PsiFileImpl) ParserDefinition.forLanguage(lang).createFile(this);
 			file.setContentElementType(RazorCSharpTokens.TEMPLATE_DATA);
 			return file;
 		}

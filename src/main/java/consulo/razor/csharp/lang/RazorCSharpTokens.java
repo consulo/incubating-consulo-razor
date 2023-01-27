@@ -16,26 +16,26 @@
 
 package consulo.razor.csharp.lang;
 
-import javax.annotation.Nonnull;
-
-import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.Language;
-import com.intellij.lang.PsiBuilder;
-import com.intellij.lang.PsiBuilderFactory;
-import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.TokenType;
-import com.intellij.psi.templateLanguages.TemplateDataElementType;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.ILazyParseableElementType;
 import consulo.csharp.lang.CSharpLanguage;
-import consulo.csharp.lang.parser.CSharpBuilderWrapper;
-import consulo.csharp.lang.parser.ModifierSet;
-import consulo.csharp.lang.parser.exp.ExpressionParsing;
-import consulo.csharp.lang.parser.stmt.StatementParsing;
+import consulo.csharp.lang.impl.parser.CSharpBuilderWrapper;
+import consulo.csharp.lang.impl.parser.ModifierSet;
+import consulo.csharp.lang.impl.parser.exp.ExpressionParsing;
+import consulo.csharp.lang.impl.parser.stmt.StatementParsing;
 import consulo.csharp.lang.psi.CSharpTokens;
-import consulo.lang.LanguageVersion;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.ILazyParseableElementType;
+import consulo.language.ast.TokenType;
+import consulo.language.impl.psi.template.TemplateDataElementType;
+import consulo.language.parser.PsiBuilder;
+import consulo.language.parser.PsiBuilderFactory;
+import consulo.language.psi.PsiElement;
+import consulo.language.version.LanguageVersion;
+import consulo.project.Project;
+import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL

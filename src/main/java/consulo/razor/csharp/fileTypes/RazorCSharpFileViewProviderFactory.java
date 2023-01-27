@@ -16,23 +16,33 @@
 
 package consulo.razor.csharp.fileTypes;
 
-import javax.annotation.Nonnull;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.file.FileViewProvider;
+import consulo.language.file.LanguageFileViewProviderFactory;
+import consulo.language.psi.PsiManager;
+import consulo.razor.csharp.lang.RazorCSharpLanguage;
+import consulo.virtualFileSystem.VirtualFile;
 
-import com.intellij.lang.Language;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.FileViewProviderFactory;
-import com.intellij.psi.PsiManager;
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 10.03.2016
  */
-public class RazorCSharpFileViewProviderFactory implements FileViewProviderFactory
+@ExtensionImpl
+public class RazorCSharpFileViewProviderFactory implements LanguageFileViewProviderFactory
 {
 	@Override
 	public FileViewProvider createFileViewProvider(@Nonnull VirtualFile file, Language language, @Nonnull PsiManager manager, boolean eventSystemEnabled)
 	{
 		return new RazorCSharpFileViewProvider(manager, file, eventSystemEnabled);
+	}
+
+	@Nonnull
+	@Override
+	public Language getLanguage()
+	{
+		return RazorCSharpLanguage.INSTANCE;
 	}
 }

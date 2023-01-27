@@ -16,20 +16,22 @@
 
 package consulo.razor.csharp.lang;
 
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.ParserDefinition;
-import com.intellij.lang.PsiBuilder;
-import com.intellij.lang.PsiParser;
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.TokenSet;
-import consulo.csharp.lang.psi.CSharpElements;
-import consulo.lang.LanguageVersion;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.csharp.lang.impl.psi.CSharpElements;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.IFileElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.file.FileViewProvider;
+import consulo.language.impl.psi.ASTWrapperPsiElement;
+import consulo.language.lexer.Lexer;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.parser.PsiBuilder;
+import consulo.language.parser.PsiParser;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.version.LanguageVersion;
 import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 import consulo.razor.csharp.lang.psi.RazorCSharpFile;
 
@@ -39,12 +41,21 @@ import javax.annotation.Nonnull;
  * @author VISTALL
  * @since 10.03.2016
  */
+@ExtensionImpl
 public class RazorCSharpParserDefinition implements ParserDefinition
 {
 	private static final IFileElementType FILE_ELEMENT_TYPE = new IFileElementType("RAZOR_CSHARP_FILE", RazorCSharpLanguage.INSTANCE);
+
 	@Nonnull
 	@Override
-	public Lexer createLexer( @Nonnull LanguageVersion languageVersion)
+	public Language getLanguage()
+	{
+		return RazorCSharpLanguage.INSTANCE;
+	}
+
+	@Nonnull
+	@Override
+	public Lexer createLexer(@Nonnull LanguageVersion languageVersion)
 	{
 		return new RazorCSharpLexer.Merge();
 	}

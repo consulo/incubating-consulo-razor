@@ -16,17 +16,17 @@
 
 package consulo.razor.csharp.lang.lexer;
 
-import javax.annotation.Nonnull;
-
-import consulo.razor.csharp.lang.RazorCSharpTokens;
-import com.intellij.lexer.Lexer;
-import com.intellij.lexer.LexerPosition;
-import com.intellij.lexer.LookAheadLexer;
-import com.intellij.lexer.MergingLexerAdapter;
-import com.intellij.openapi.util.Ref;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.TokenSet;
 import consulo.csharp.lang.psi.CSharpTokens;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.lexer.Lexer;
+import consulo.language.lexer.LexerPosition;
+import consulo.language.lexer.LookAheadLexer;
+import consulo.language.lexer.MergingLexerAdapter;
+import consulo.razor.csharp.lang.RazorCSharpTokens;
+import consulo.util.lang.ref.Ref;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL

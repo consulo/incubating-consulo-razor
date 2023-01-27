@@ -16,15 +16,18 @@
 
 package consulo.razor;
 
-import javax.annotation.Nonnull;
+import consulo.annotation.component.ExtensionImpl;
 import consulo.razor.csharp.fileTypes.RazorCSharpFileType;
-import com.intellij.openapi.fileTypes.FileTypeConsumer;
-import com.intellij.openapi.fileTypes.FileTypeFactory;
+import consulo.virtualFileSystem.fileType.FileTypeConsumer;
+import consulo.virtualFileSystem.fileType.FileTypeFactory;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 10.03.2016
  */
+@ExtensionImpl
 public class RazorFileTypeFactory extends FileTypeFactory
 {
 	@Override

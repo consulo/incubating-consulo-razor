@@ -17,9 +17,9 @@
 package consulo.razor.csharp.lang.lexer;
 
 import consulo.csharp.lang.psi.CSharpTokens;
+import consulo.language.ast.IElementType;
+import consulo.language.lexer.LexerBase;
 import consulo.razor.csharp.lang.RazorCSharpTokens;
-import com.intellij.lexer.LexerBase;
-import com.intellij.psi.tree.IElementType;
 
 %%
 

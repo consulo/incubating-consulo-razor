@@ -16,7 +16,7 @@
 
 package consulo.razor.csharp.fileTypes;
 
-import com.intellij.openapi.fileTypes.LanguageFileType;
+import consulo.language.file.LanguageFileType;
 import consulo.localize.LocalizeValue;
 import consulo.razor.csharp.lang.RazorCSharpLanguage;
 import consulo.razor.icon.RazorIconGroup;

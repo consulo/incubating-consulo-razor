@@ -16,10 +16,10 @@
 
 package consulo.razor.csharp.lang;
 
+import consulo.language.ast.ElementTypeAsPsiFactory;
+import consulo.language.ast.IElementType;
 import consulo.razor.csharp.lang.psi.RazorCSharpMethodDeclaration;
 import consulo.razor.csharp.lang.psi.RazorCSharpTypeDeclaration;
-import com.intellij.psi.tree.IElementType;
-import consulo.psi.tree.ElementTypeAsPsiFactory;
 
 /**
  * @author VISTALL
@@ -27,7 +27,7 @@ import consulo.psi.tree.ElementTypeAsPsiFactory;
  */
 public interface RazorCSharpElements
 {
-	IElementType TYPE_DECLARATION = new ElementTypeAsPsiFactory("TYPE_DECLARATION", RazorCSharpLanguage.INSTANCE, RazorCSharpTypeDeclaration.class);
+	IElementType TYPE_DECLARATION = new ElementTypeAsPsiFactory("TYPE_DECLARATION", RazorCSharpLanguage.INSTANCE, RazorCSharpTypeDeclaration::new);
 
-	IElementType METHOD_DECLARATION = new ElementTypeAsPsiFactory("METHOD_DECLARATION", RazorCSharpLanguage.INSTANCE, RazorCSharpMethodDeclaration.class);
+	IElementType METHOD_DECLARATION = new ElementTypeAsPsiFactory("METHOD_DECLARATION", RazorCSharpLanguage.INSTANCE, RazorCSharpMethodDeclaration::new);
 }

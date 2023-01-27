@@ -25,14 +25,4 @@
 	<tags>
 		<tag>template.language</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<fileTypeFactory implementation="consulo.razor.RazorFileTypeFactory"/>
-
-		<lang.fileViewProviderFactory language="RAZOR_CSHARP" implementationClass="consulo.razor.csharp.fileTypes.RazorCSharpFileViewProviderFactory"/>
-
-		<lang.parserDefinition language="RAZOR_CSHARP" implementationClass="consulo.razor.csharp.lang.RazorCSharpParserDefinition"/>
-
-		<editorHighlighterProvider filetype="RAZOR_CSHARP" implementationClass="consulo.razor.csharp.highlight.RazorCSharpEditorHighlighterFactory" />
-	</extensions>
 </consulo-plugin>

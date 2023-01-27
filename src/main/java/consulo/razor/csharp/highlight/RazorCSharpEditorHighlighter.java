@@ -16,20 +16,16 @@
 
 package consulo.razor.csharp.highlight;
 
+import consulo.colorScheme.EditorColorsScheme;
+import consulo.csharp.lang.CSharpLanguage;
+import consulo.language.editor.highlight.*;
+import consulo.project.Project;
+import consulo.razor.csharp.lang.RazorCSharpTokens;
+import consulo.virtualFileSystem.VirtualFile;
+import consulo.xml.lang.html.HTMLLanguage;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import consulo.razor.csharp.lang.RazorCSharpTokens;
-import com.intellij.lang.html.HTMLLanguage;
-import com.intellij.openapi.editor.colors.EditorColorsScheme;
-import com.intellij.openapi.editor.ex.util.LayerDescriptor;
-import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.templateLanguages.TemplateDataHighlighterWrapper;
-import consulo.csharp.lang.CSharpLanguage;
 
 /**
  * @author VISTALL
