@@ -78,9 +78,8 @@ public interface RazorCSharpTokens extends TokenType
 			return builder.getTreeBuilt().getFirstChildNode();
 		}
 
-		@Nonnull
 		@Override
-		public Language getLanguage()
+		protected Language getLanguageForParser(PsiElement psi)
 		{
 			return CSharpLanguage.INSTANCE;
 		}
