@@ -35,7 +35,7 @@ import consulo.language.version.LanguageVersion;
 import consulo.project.Project;
 import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL

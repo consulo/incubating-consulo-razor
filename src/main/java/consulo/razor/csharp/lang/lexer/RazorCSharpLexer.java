@@ -26,7 +26,7 @@ import consulo.language.lexer.MergingLexerAdapter;
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import consulo.util.lang.ref.Ref;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
