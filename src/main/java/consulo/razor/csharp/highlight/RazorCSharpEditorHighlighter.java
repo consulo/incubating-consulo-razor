@@ -18,11 +18,11 @@ package consulo.razor.csharp.highlight;
 
 import consulo.colorScheme.EditorColorsScheme;
 import consulo.csharp.lang.CSharpLanguage;
+import consulo.html.language.HTMLLanguage;
 import consulo.language.editor.highlight.*;
 import consulo.project.Project;
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import consulo.virtualFileSystem.VirtualFile;
-import consulo.xml.lang.html.HTMLLanguage;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

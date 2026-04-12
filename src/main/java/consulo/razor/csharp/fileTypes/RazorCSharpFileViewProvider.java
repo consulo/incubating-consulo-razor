@@ -16,6 +16,7 @@
 
 package consulo.razor.csharp.fileTypes;
 
+import consulo.html.language.HTMLLanguage;
 import consulo.language.Language;
 import consulo.language.impl.file.MultiplePsiFilesPerDocumentFileViewProvider;
 import consulo.language.impl.psi.PsiFileImpl;
@@ -26,7 +27,6 @@ import consulo.language.template.TemplateLanguageFileViewProvider;
 import consulo.razor.csharp.lang.RazorCSharpLanguage;
 import consulo.razor.csharp.lang.RazorCSharpTokens;
 import consulo.virtualFileSystem.VirtualFile;
-import consulo.xml.lang.html.HTMLLanguage;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
