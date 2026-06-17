@@ -26,7 +26,7 @@ import consulo.language.Language;
 import consulo.language.ast.ASTNode;
 import consulo.language.ast.IElementType;
 import consulo.language.ast.ILazyParseableElementType;
-import consulo.language.ast.TokenType;
+import consulo.language.ast.StandardTokenTypes;
 import consulo.language.impl.psi.template.TemplateDataElementType;
 import consulo.language.parser.PsiBuilder;
 import consulo.language.parser.PsiBuilderFactory;
@@ -34,62 +34,54 @@ import consulo.language.psi.PsiElement;
 import consulo.language.version.LanguageVersion;
 import consulo.project.Project;
 import consulo.razor.csharp.lang.lexer.RazorCSharpLexer;
-
 import jakarta.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 10.03.2016
  */
-public interface RazorCSharpTokens extends TokenType
-{
-	IElementType AT = new IElementType("AT", RazorCSharpLanguage.INSTANCE);
+public interface RazorCSharpTokens extends StandardTokenTypes {
+    IElementType AT = new IElementType("AT", RazorCSharpLanguage.INSTANCE);
 
-	IElementType CSHARP_TEXT = new ILazyParseableElementType("CSHARP_TEXT", RazorCSharpLanguage.INSTANCE)
-	{
-		@Override
-		protected ASTNode doParseContents(@Nonnull ASTNode chameleon, @Nonnull PsiElement psi)
-		{
-			final Project project = psi.getProject();
-			final Language languageForParser = getLanguageForParser(psi);
-			final LanguageVersion languageVersion = CSharpLanguage.INSTANCE.getVersions()[0];
-			final PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, null, languageForParser, languageVersion, chameleon.getChars());
+    IElementType CSHARP_TEXT = new ILazyParseableElementType("CSHARP_TEXT", RazorCSharpLanguage.INSTANCE) {
+        @Override
+        protected ASTNode doParseContents(@Nonnull ASTNode chameleon, @Nonnull PsiElement psi) {
+            final Project project = psi.getProject();
+            final Language languageForParser = getLanguageForParser(psi);
+            final LanguageVersion languageVersion = CSharpLanguage.INSTANCE.getVersions()[0];
+            final PsiBuilder builder = PsiBuilderFactory.getInstance().createBuilder(project, chameleon, null, languageForParser, languageVersion, chameleon.getChars());
 
-			CSharpBuilderWrapper builderWrapper = new CSharpBuilderWrapper(builder, languageVersion);
+            CSharpBuilderWrapper builderWrapper = new CSharpBuilderWrapper(builder, languageVersion);
 
-			PsiBuilder.Marker rootMarker = builderWrapper.mark();
-			if(RazorCSharpLexer.ourPairStatementKeywords.contains(builder.getTokenType()) || builder.getTokenType() == CSharpTokens.LBRACE)
-			{
-				StatementParsing.parse(builderWrapper, ModifierSet.create());
-			}
-			else
-			{
-				ExpressionParsing.parse(builderWrapper, ModifierSet.create());
-			}
+            PsiBuilder.Marker rootMarker = builderWrapper.mark();
+            if (RazorCSharpLexer.ourPairStatementKeywords.contains(builder.getTokenType()) || builder.getTokenType() == CSharpTokens.LBRACE) {
+                StatementParsing.parse(builderWrapper, ModifierSet.create());
+            }
+            else {
+                ExpressionParsing.parse(builderWrapper, ModifierSet.create());
+            }
 
-			while(!builder.eof())
-			{
-				PsiBuilder.Marker mark = builder.mark();
-				builder.advanceLexer();
-				mark.error("Unexpected element");
-			}
+            while (!builder.eof()) {
+                PsiBuilder.Marker mark = builder.mark();
+                builder.advanceLexer();
+                mark.error("Unexpected element");
+            }
 
-			rootMarker.done(this);
-			return builder.getTreeBuilt().getFirstChildNode();
-		}
+            rootMarker.done(this);
+            return builder.getTreeBuilt().getFirstChildNode();
+        }
 
-		@Override
-		protected Language getLanguageForParser(PsiElement psi)
-		{
-			return CSharpLanguage.INSTANCE;
-		}
-	};
+        @Override
+        protected Language getLanguageForParser(PsiElement psi) {
+            return CSharpLanguage.INSTANCE;
+        }
+    };
 
-	IElementType BLOCK_COMMENT = new IElementType("BLOCK_COMMENT", RazorCSharpLanguage.INSTANCE);
+    IElementType BLOCK_COMMENT = new IElementType("BLOCK_COMMENT", RazorCSharpLanguage.INSTANCE);
 
-	IElementType OUTER_ELEMENT_TYPE = new IElementType("OUTER_ELEMENT_TYPE", RazorCSharpLanguage.INSTANCE);
+    IElementType OUTER_ELEMENT_TYPE = new IElementType("OUTER_ELEMENT_TYPE", RazorCSharpLanguage.INSTANCE);
 
-	IElementType TEMPLATE_TEXT = new IElementType("TEMPLATE_TEXT", RazorCSharpLanguage.INSTANCE);
+    IElementType TEMPLATE_TEXT = new IElementType("TEMPLATE_TEXT", RazorCSharpLanguage.INSTANCE);
 
-	TemplateDataElementType TEMPLATE_DATA = new TemplateDataElementType("TEMPLATE_DATA", RazorCSharpLanguage.INSTANCE, TEMPLATE_TEXT, OUTER_ELEMENT_TYPE);
+    TemplateDataElementType TEMPLATE_DATA = new TemplateDataElementType("TEMPLATE_DATA", RazorCSharpLanguage.INSTANCE, TEMPLATE_TEXT, OUTER_ELEMENT_TYPE);
 }
